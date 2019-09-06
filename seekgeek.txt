@@ -1,0 +1,28 @@
+import csv
+import re
+fund1='https://www.moneycontrol.com/mutual-funds/nav/aditya-birla-sun-life-focused-equity-fund/MBS089'
+fund2='https://www.moneycontrol.com/mutual-funds/nav/aditya-birla-sun-life-small-cap-fund/MBS104'
+fund3='https://www.moneycontrol.com/mutual-funds/nav/axis-long-term-equity-fund-regular-plan/MAA011'
+fund4='https://www.moneycontrol.com/mutual-funds/nav/canara-robeco-emerging-equities/MCA033'
+fund5='https://www.moneycontrol.com/mutual-funds/nav/franklin-india-smaller-companies-fund/MTE090'
+fund6='https://www.moneycontrol.com/mutual-funds/nav/hdfc-top-100-fund/MZU009'
+fund7='https://www.moneycontrol.com/mutual-funds/nav/icici-prudential-large-mid-cap-fund/MPI003'
+fund8='https://www.moneycontrol.com/mutual-funds/nav/invesco-india-dynamic-equity-fund/MLI117'
+fund9='https://www.moneycontrol.com/mutual-funds/nav/l-t-emerging-businesses-fund-direct-plan/MCC492'
+fund10='https://www.moneycontrol.com/mutual-funds/nav/l-t-midcap-fund/MCC037'
+fund11='https://www.moneycontrol.com/mutual-funds/nav/reliance-small-cap-fund/MRC587'
+fund12='https://www.moneycontrol.com/mutual-funds/nav/sbi-blue-chip-fund/MSB079'
+fund13='https://www.moneycontrol.com/mutual-funds/nav/sbi-focused-equity-fund/MSB059'
+
+fund_list=[fund1,fund2,fund3,fund4,fund5,fund6,fund7,fund8,fund9,fund10,fund11,fund12,fund13]
+data={}
+csv_columns=['name','nav_val','date']
+with open('fund_file.csv', mode='w') as funds_file:
+  for x in fund_list:
+    name = x.split('nav/')[1].split('/')[0]
+    data['name']=name
+    data['nav_val']='56.82'
+    data['date']='28-08-2019'
+    writer = csv.DictWriter(funds_file, fieldnames=csv_columns)
+    writer.writeheader()
+    writer.writerow(data)
